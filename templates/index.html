@@ -2,7 +2,7 @@
 
 {% block container %}
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-  <a href="alumnos" class="font-medium text-fg-brand hover:underline">Read more</a>
+  <a href="alumnos" class="font-medium text-fg-brand hover:underline">Nuevo</a>
     <table class="w-full text-sm text-left rtl:text-right text-body">
         <thead class="text-sm text-body bg-neutral-secondary-medium border-b border-default-medium">
             <tr>
@@ -27,106 +27,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    Mariana
-                </th>
-                <td class="px-6 py-4">
-                    Cortes
-                </td>
-                <td class="px-6 py-4">
-                    cortesmar@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Detalle</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
-                </td>
-            </tr>
-            <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    Juan
-                </th>
-                <td class="px-6 py-4">
-                    Ontiveros
-                </td>
-                <td class="px-6 py-4">
-                    ontijuan@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Detalle</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
-                </td>
-            </tr>
-            <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    Camila
-                </th>
-                <td class="px-6 py-4">
-                    Armenta
-                </td>
-                <td class="px-6 py-4">
-                    armentcami@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Detalle</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
-                </td>
-            </tr>
-            <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    Naomi
-                </th>
-                <td class="px-6 py-4">
-                    Ruiz
-                </td>
-                <td class="px-6 py-4">
-                    ruiznao@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Detalle</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
-                </td>
-            </tr>
-            <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-                <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
-                    Christian
-                </th>
-                <td class="px-6 py-4">
-                    Hernandez
-                </td>
-                <td class="px-6 py-4">
-                    hernachris@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Detalle</a>
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
-                </td>
-            </tr>
+            {%for alum in alumno%}
+                <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
+                    <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">
+                        {{alum.nombre}}
+                    </th>
+                    <td class="px-6 py-4">
+                        {{alum.apaterno}}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{alum.email}}
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-fg-brand hover:underline">Editar</a>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="detalles?id={{ alum.id }}" class="font-medium text-danger hover:underline ms-3">Detalle</a>
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="#" class="font-medium text-danger hover:underline ms-3">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 </div>

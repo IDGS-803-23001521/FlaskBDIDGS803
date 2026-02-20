@@ -1,0 +1,15 @@
+{% extends "layout.html" %}{% block container %}{%from "_macros.html" import camposNuevos %}
+
+<a href="index" class="font-medium text-fg-brand hover:underline">Volver</a>
+    <div class="flex flex-col justify-between md:p-4 leading-normal">
+        <img class="w-8 h-8 rounded-full border-2 border-pink-200 shadow-sm object-cover" 
+     src="{{ url_for('static', filename='img/user.png') }}" 
+     alt="User">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-heading">Nombre: {{nombre}}</h5>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-heading">Apellido: {{apaterno}}</h3>
+        <h3 class="mb-2 text-2xl font-bold tracking-tight text-heading">Email: {{email}}</h3>
+    </div>
+</a>
+
+
+{% endblock %}
