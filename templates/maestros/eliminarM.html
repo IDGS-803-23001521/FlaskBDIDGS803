@@ -1,0 +1,29 @@
+{% extends "/maestros/layoutM.html" %}{% block container %}{%import "/maestros/_macrosM.html" as macros %}
+
+
+<form action="" method="POST" novalidate class="max-w-sm mx-auto">
+  {{ form.csrf_token }}
+  <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+  <div class="relative z-0 w-full mb-5 group">
+    {{macros.camposNuevosM(form.matricula, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body")}}
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    {{macros.camposNuevosM(form.nombre, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body")}}
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    {{macros.camposNuevosM(form.apellidos, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body")}}
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    {{macros.camposNuevosM(form.especialidad, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body")}}
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    {{macros.camposNuevosM(form.email, class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body")}}
+  </div>
+  <button type="submit" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Eliminar</button>
+  <a href="{{ url_for('maestros.indexM') }}" class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-3 focus:outline-none">Cancelar</a>
+</form>
+
+
+
+
+{% endblock %}

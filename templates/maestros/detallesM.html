@@ -1,11 +1,11 @@
-{% extends "layout.html" %}{% block container %}{%from "_macros.html" import camposNuevos %}
+{% extends "/maestros/layoutM.html" %}{% block container %}{%from "/maestros/_macrosM.html" import camposNuevosM %}
 
-<a href="index" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row md:max-w-xl md:flex-row md:max-w-xl">
+<a href="{{ url_for('maestros.indexM') }}" class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:flex-row md:max-w-xl md:flex-row md:max-w-xl">
     <img class="w-10 h-10 rounded-full border-2 border-gray-200 shadow-sm object-cover" src="{{ url_for('static', filename='img/user.png') }}" alt="user">
     <div class="flex flex-col justify-between md:p-4 leading-normal">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-heading">Info. de {{nombre}} {{apellidos}}.</h5>
+        <p class="mb-6 text-body">Especialidad: {{especialidad}}</p>
         <p class="mb-6 text-body">Email: {{email}}</p>
-        <p class="mb-6 text-body">Telefono: {{telefono}}</p>
         <p class="mb-6 text-body"></p>
         <div>
             <button type="button" class="inline-flex items-center w-auto text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">

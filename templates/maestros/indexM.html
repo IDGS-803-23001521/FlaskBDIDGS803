@@ -1,20 +1,20 @@
-{% extends "layout.html" %}
+{% extends "/maestros/layoutM.html" %}
 
 {% block container %}
 <div class="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
   <div class="flex justify-between items-center p-4 border-b border-default-medium">
-    <a href="alumnos" class="inline-flex items-center px-4 py-2 bg-neutral-secondary-medium text-body text-sm font-medium rounded-base hover:bg-neutral-secondary-dark transition-colors duration-200">
+    <a href="{{ url_for('maestros.maestrosC') }}" class="inline-flex items-center px-4 py-2 bg-neutral-secondary-medium text-body text-sm font-medium rounded-base hover:bg-neutral-secondary-dark transition-colors duration-200">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
         </svg>
-         Nuevo Alumno
+        Nuevo Maestro
     </a>
 
-    <a href="{{ url_for('maestros.indexM') }}" class="inline-flex items-center px-4 py-2 bg-neutral-secondary-medium text-body text-sm font-medium rounded-base hover:bg-neutral-secondary-dark transition-colors duration-200">
+    <a href="index" class="inline-flex items-center px-4 py-2 bg-neutral-secondary-medium text-body text-sm font-medium rounded-base hover:bg-neutral-secondary-dark transition-colors duration-200">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
         </svg>
-         Ver Maestros
+         Ver Alumnos
     </a>
   </div>
   
@@ -23,42 +23,42 @@
       <tr>
         <th scope="col" class="px-6 py-3 font-medium">NOMBRE</th>
         <th scope="col" class="px-6 py-3 font-medium">APELLIDOS</th>
-        <th scope="col" class="px-6 py-3 font-medium">CORREO</th>
-        <th scope="col" class="px-6 py-3 font-medium">TELÉFONO</th>
+        <th scope="col" class="px-6 py-3 font-medium">ESPECIALIDAD</th>
+        <th scope="col" class="px-6 py-3 font-medium">EMAIL</th>
         <th scope="col" class="px-6 py-3 font-medium">EDITAR</th>
         <th scope="col" class="px-6 py-3 font-medium">DETALLES</th>
         <th scope="col" class="px-6 py-3 font-medium">ELIMINAR</th>
       </tr>
     </thead>
     <tbody>
-      {% for alum in alumno %}
+      {% for maes in maestro %}
       <tr class="bg-neutral-primary-soft border-b border-default hover:bg-neutral-secondary-medium">
-        <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{alum.nombre}}</th>
-        <td class="px-6 py-4">{{alum.apellidos}}</td>
-        <td class="px-6 py-4">{{alum.email}}</td>
-        <td class="px-6 py-4">{{alum.telefono}}</td>
+        <th scope="row" class="px-6 py-4 font-medium text-heading whitespace-nowrap">{{maes.nombre}}</th>
+        <td class="px-6 py-4">{{maes.apellidos}}</td>
+        <td class="px-6 py-4">{{maes.especialidad}}</td>
+        <td class="px-6 py-4">{{maes.email}}</td>
         <td class="px-6 py-4">
           <div class="flex items-center gap-2">
-            <a href="modificar?id={{ alum.id }}" class="inline-flex items-center p-2 text-fg-brand hover:bg-fg-brand/10 rounded-lg transition-colors duration-200" title="Editar">
+            <a href="modificarM?matricula={{ maes.matricula }}" class="inline-flex items-center p-2 text-fg-brand hover:bg-fg-brand/10 rounded-lg transition-colors duration-200" title="Editar">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-              </svg> Editar 
+              </svg> Editar
             </a>
           </div>
         </td>
         <td class="px-6 py-4">
           <div class="flex items-center gap-2">
-            <a href="detalles?id={{ alum.id }}" class="inline-flex items-center p-2 text-info hover:bg-info/10 rounded-lg transition-colors duration-200" title="Ver detalles">
+            <a href="detallesM?matricula={{ maes.matricula }}" class="inline-flex items-center p-2 text-info hover:bg-info/10 rounded-lg transition-colors duration-200" title="Ver detalles">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
-              </svg> Ver detalles 
+              </svg> Ver detalles
             </a>
           </div>
         </td>
         <td class="px-6 py-4">
           <div class="flex items-center gap-2">
-            <a href="eliminar?id={{ alum.id }}" class="inline-flex items-center p-2 text-danger hover:bg-danger/10 rounded-lg transition-colors duration-200" title="Eliminar">
+            <a href="eliminarM?matricula={{ maes.matricula }}" class="inline-flex items-center p-2 text-danger hover:bg-danger/10 rounded-lg transition-colors duration-200" title="Eliminar"> 
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
               </svg> Eliminar

@@ -4,6 +4,7 @@ from flask_wtf.csrf import CSRFProtect
 from config import DevelopmentConfig
 from flask_migrate import Migrate
 from flask import g
+from maestros.routes import maestros
 
 import forms
 
@@ -12,6 +13,7 @@ from models import Alumnos
 
 app = Flask(__name__)
 app.config.from_object(DevelopmentConfig)
+app.register_blueprint(maestros)
 db.init_app(app)
 migrate = Migrate(app,db)
 csrf=CSRFProtect()
