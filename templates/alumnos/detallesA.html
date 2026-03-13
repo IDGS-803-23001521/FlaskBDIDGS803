@@ -3,16 +3,16 @@
 
 <div class="flex flex-col items-center bg-neutral-primary-soft p-6 border border-default rounded-base shadow-xs md:max-w-2xl mx-auto">
     <img class="w-10 h-10 rounded-full border-2 border-gray-200 shadow-sm object-cover" src="{{ url_for('static', filename='img/user.png') }}" alt="user">
-        <h5 class="mb-4 text-2xl font-bold tracking-tight text-heading text-center">Información del Maestro</h5>
+    <div class="flex flex-col justify-between leading-normal w-full">
+        <h5 class="mb-4 text-2xl font-bold tracking-tight text-heading text-center">Información del Alumno</h5>
         
         <div class="bg-gray-50 p-4 rounded-lg mb-4">
-            <p class="mb-2 text-body"><strong>Nombre:</strong> {{ nombre }} {{ apellidos }}</p>
-            <p class="mb-2 text-body"><strong>Especialidad:</strong> {{ especialidad }}</p>
+            <p class="mb-2 text-body"><strong>Nombre:</strong> {{ nombre }} {{ apaterno }}</p>
             <p class="mb-2 text-body"><strong>Email:</strong> {{ email }}</p>
         </div>
         
         <div class="mt-4">
-            <h6 class="text-xl font-semibold mb-3">Cursos que Imparte:</h6>
+            <h6 class="text-xl font-semibold mb-3">Cursos Inscritos:</h6>
             {% if cursos %}
                 <ul class="list-disc pl-5 mb-4">
                     {% for curso in cursos %}
@@ -20,12 +20,12 @@
                     {% endfor %}
                 </ul>
             {% else %}
-                <p class="text-gray-500 italic mb-4">No imparte ningún curso</p>
+                <p class="text-gray-500 italic mb-4">No está inscrito en ningún curso</p>
             {% endif %}
         </div>
         
         <div class="flex justify-center mt-4">
-            <a href="{{ url_for('maestros.indexM') }}" class="inline-flex items-center w-auto text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+            <a href="{{ url_for('alumnos.indexA') }}" class="inline-flex items-center w-auto text-body bg-neutral-secondary-medium box-border border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
                 Volver
                 <svg class="w-4 h-4 ms-1.5 rtl:rotate-180 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/></svg>
             </a>

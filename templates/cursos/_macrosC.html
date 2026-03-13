@@ -5,7 +5,7 @@
     </div>
 {% endmacro %}
 
-{% macro camposNuevos(field) %} 
+{% macro camposNuevosC(field) %} 
     <td>{{ field.label }}</td>
     <dd>{{ field(**kwargs) | safe }}</dd>
     {% if field.errors %}
